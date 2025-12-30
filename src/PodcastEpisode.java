@@ -1,4 +1,4 @@
-public class PodcastEpisode extends ContentItem {
+public class PodcastEpisode extends ContentItem implements Downloadable {
     private String hostName;
     public PodcastEpisode(String title, int year, int durationMinutes, String hostName) {
         super(title, year, durationMinutes);
@@ -30,5 +30,13 @@ public class PodcastEpisode extends ContentItem {
     public String toString() {
         return super.toString() + ", Host: " + hostName;
     }
+    @Override
+    public void download() {
+        System.out.println("Downloading podcast hosted by " + hostName);
+    }
 
+    @Override
+    public int getMaxDownloadsPerDay() {
+        return 10;
+    }
 }

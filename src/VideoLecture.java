@@ -1,4 +1,4 @@
-public class VideoLecture extends ContentItem{
+public class VideoLecture extends ContentItem implements Downloadable{
     private String quality;
     public VideoLecture(String title, int year, int durationMinutes, String quality) {
         super(title, year, durationMinutes);
@@ -29,5 +29,14 @@ public class VideoLecture extends ContentItem{
     @Override
     public String toString() {
         return super.toString() + ", Quality: " + quality;
+    }
+    @Override
+    public void download() {
+        System.out.println("Downloading video in " + quality + " quality");
+    }
+
+    @Override
+    public int getMaxDownloadsPerDay() {
+        return 3;
     }
 }

@@ -1,4 +1,4 @@
-public class Bus extends Vehicle{
+public class Bus extends Vehicle implements Servicable{
     private int passengerCapacity;
 
     public Bus(String model,int year,double basePrice,int passengerCapacity) {
@@ -18,5 +18,13 @@ public class Bus extends Vehicle{
     public double calculateInsuranceFee() {
         int age =getage(java.time.Year.now().getValue());
         return basePrice*0.06+passengerCapacity*50+age*70;
+    }
+    @Override
+    public void performService() {
+        System.out.println("a survey was conducted");
+    }
+    @Override
+    public int getServiceIntervalKm() {
+        return 10000;
     }
 }
